@@ -2,7 +2,7 @@
     "type": "project",
     "license": "proprietary",
     "require": {
-        "php": "^7.3",
+        "php": "^7.2",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "fzaninotto/faker": "^1.8",
@@ -15,7 +15,8 @@
         "symfony/yaml": "4.2.*"
     },
     "require-dev": {
-        "symfony/debug-pack": "^1.0"
+        "symfony/debug-pack": "^1.0",
+        "friendsofphp/php-cs-fixer": "^2.14"
     },
     "config": {
         "preferred-install": {
@@ -42,6 +43,8 @@
         "symfony/polyfill-php56": "*"
     },
     "scripts": {
+        "cs-check": "php-cs-fixer fix --dry-run --diff --ansi",
+        "cs-fix": "php-cs-fixer fix --diff --ansi",
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd"

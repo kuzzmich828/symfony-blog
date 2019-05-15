@@ -10,6 +10,10 @@ use Faker\Factory;
 
 final class FakeHomePageService implements HomePageServiceInterface
 {
+    /**
+     * Get all posts
+     * @return PostCollection
+     */
     public function getPosts(): PostCollection
     {
         $collection = new PostCollection();
@@ -33,4 +37,31 @@ final class FakeHomePageService implements HomePageServiceInterface
 
         return $collection;
     }
+
+    /**
+     * @param int $id
+     * Get one post by id
+     * @return Post
+     */
+    public function getPostById(int $id): Post
+    {
+
+        $faker = Factory::create();
+
+        $post = new Post(
+            $id,
+            new Category($faker->sentence),
+            $faker->sentence
+        );
+
+        $post
+            ->setImage($faker->imageUrl())
+            ->setShortDescription($faker->sentence())
+            ->setPublicationDate($faker->dateTime)
+        ;
+
+        return $post;
+
+    }
+
 }

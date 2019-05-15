@@ -1,9 +1,8 @@
 index:
     path: /
     controller: App\Controller\DefaultController::index
-post_list:
-    path: /post
-    controller: App\Controller\PostController::list
 post_single:
-    path: /post/{slug}
+    path: /post/{id}
     controller: App\Controller\PostController::single
+    requirements:
+        id: '\d+'
